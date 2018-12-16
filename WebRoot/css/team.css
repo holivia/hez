@@ -1,0 +1,96 @@
+
+@CHARSET "UTF-8";
+body{
+	background:#E9EDF1;
+	}
+#home_top{
+	background: #006CE0;
+	color:#FFFFFF;
+	width: 100%;
+	height: 48px;
+	font-size:12px;
+	border:1px;
+	
+}
+#div_menu{			
+	width:48px;
+	height:43px;
+	background: blue;
+	padding-top:5px;
+}
+#span_menu{		
+	padding-top:12px;
+	
+	padding-let:10px;
+	margin-left: 5px;
+	margin-top:-48px;
+    text-align:center;
+	background: blue;
+	height:35px;
+	width:100px;		
+}
+#font_fu{
+	margin-left: 80px;
+	margin-top: -47px;
+	height:48px;	
+}
+#div_pinfo{
+	width: 100%;
+	height:500px;
+	background: white;
+}
+.r1{
+	text-align: right;
+	color:grey;
+	font-size: 14px;
+	width: 150px;	
+}
+.p_content{
+	color:#8D8D8D;
+	font-size: 10px;
+	width: 50px;
+	font-weight: bold;
+}
+#immediately_check{
+	height:25px;
+	width:60px;
+	
+	color: white;
+	text-align:center;
+	background:#3185D8;
+	border-radius:5px 5px 5px 5px;	
+	
+}
+#div_out{
+	
+	width: 98%;
+	height:30px;
+	margin-left: 10px;
+	margin-top: 10px;
+	background: #F8F8F8;
+}
+.line{
+	background-color:#FF8328;
+	width:4px;
+	height:15px;
+	margin-left: 15px;
+	margin-top: 12px;
+	position: absolute;
+	
+}
+tr{ text-align: center;}
+#title_d{
+	color:#6CADE3;
+	border-right: solid 1px gainsboro;
+	display: inline-block;
+	padding-right:10px;
+	height:20px;
+}
+.table-a table td{border:1px solid #dcdcdc} 
+#table_out{
+	
+	width: 98%;
+	height:30px;
+	margin-left: 10px;
+	margin-top: 10px;
+}

@@ -1,0 +1,130 @@
+body{
+	background:#E9EDF1;
+	}
+#div_all{
+	background: white;
+	width: 100%;
+	height:450px;
+	margin-top:20px;
+	border: dashed 1px pink;
+}
+#div_top{
+	background: #E9F7FF;
+	width:96%;
+	height:45px;
+	margin-left: 14px;
+	margin-top:15px;
+	position:absolute;
+		
+}
+#t1{
+	width:80%;
+	height:50%;
+	margin-top:5px;
+	
+}
+#tr_font{
+	font-size: 14px;
+	color:#9BA1A4;
+	width: 65px;	
+}
+#tr_double{
+	text-align: left;
+	width: 240px;
+}
+#input_size{
+	height:24px;
+	width:100px;	
+	border-radius:5px 5px 5px 5px;
+	
+}
+
+#demo2{
+	height:24px;
+	width:250px;	
+	border-radius:5px 5px 5px 5px;
+	}
+#select_team{
+	height:28px;
+	width:160px;	
+	border-radius:5px 5px 5px 5px;
+}
+#search_button{
+	width: 60px;
+	height: 28px;
+	background-color: #0090EB;
+	color:white;
+	border-radius:5px 5px 5px 5px;
+	border: 1px
+	;
+}
+#moban_out{
+	background: white;
+    width:100px;
+	height:30px;
+	border: solid 1px #459DE6;
+	color: #459DE6;
+	margin-left: 1100px;
+	position:absolute;
+	margin-top: -32px;
+	padding-top: 2px;
+	padding-left: 6px;
+	font-size: 14px;
+	border-radius:5px 5px 5px 5px;
+}
+
+#table_div{
+	width: 96%;
+	height:50%;
+	margin-top:70px;
+	margin-left:16px;
+	border: dashed 1px red;
+	position:absolute;
+}
+#row1_info{
+	background: #F2F2F2;	
+	font-size:14px;
+	font-family: '����';
+	color:#000000;
+	
+}
+#t2{
+	width:100%;
+	border:solid 1px #E5E5E5;
+	border-collapse:collapse;
+	text-align: center;
+}
+#tr2{
+	color: #8B8B8B;
+	font-size: 14px;
+}
+#auto{
+	width: 100%;
+	height: 100%;
+	margin-top: 400px;
+	margin-left:5px;
+}
+#right_img{
+	width:22px;	
+	height:22px;
+	margin-top: 6px;
+}
+#left_img{
+	width:15px;	
+	height:15px;
+	margin-top: 5px;
+}
+.home_bottom{
+	width: 100%;
+	height:35px;
+	background-color:#E2E6E9;
+	margin-top: 10px;
+	padding-top: 15px;
+	color:#BBBDBF;
+	text-align: center;
+	font-size: 12px;
+	
+}
+#selec_page{
+	height:22px;
+	}

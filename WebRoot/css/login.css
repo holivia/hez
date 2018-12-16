@@ -1,0 +1,90 @@
+@CHARSET "UTF-8";
+#login_top{
+	width:100%;
+}
+#login_cent{
+	width:100%;
+	background-image:url('../images/login_cent.png');
+    background-repeat:no-repeat;
+	height:598px;
+	
+}
+#inner_right{
+	padding-top:10px;
+	background:#FFF;
+	width:350px;
+	height:380px;
+	border-radius:5px 5px 5px 5px;	
+	border:solid 0.5px #EEF0F2;
+	margin-left:800px;
+	margin-top:80px;
+	position: absolute;
+	}
+#login_bottom{
+	width:100%;
+}
+#staff_login{
+	height:50px;
+	padding-left:30px;
+	padding-top:20px;
+	font-size: 18px;
+    font-family: '微软雅黑','文泉驿正黑','黑体';
+	}
+#gh{
+	height:40px;
+	width:220px;
+	padding-left:5px;
+	margin-left:0px;
+	border-radius:0px 5px 5px 0px;
+	}
+#pass{
+	height:40px;
+	width:220px;
+	padding-left:5px;
+	margin-left:0px;
+	border-radius:0px 5px 5px 0px;
+	}
+.td_border{
+	text-align:center;	
+	line-height:10px;
+	}
+.td_gh{
+	text-align:center;	
+	line-height:10px;
+	padding-top:2px;
+	}	
+#forget_pass{
+	height:50px;
+	padding-left:30px;	
+	font-size: 14px;
+	color:#1291EC;	
+	}
+#immediately_login{
+	height:40px;
+	width:300px;
+	
+	color: white;
+	text-align:center;
+	background:#3185D8;
+	border-radius:5px 5px 5px 5px;
+	
+	}	
+#people_img{
+	height:39px;
+	width:36px;
+	border:solid 1px #E8E8E8;
+	text-align:center;
+	border-radius:5px 0px 0px 5px;
+	margin-right:-5px;
+	margin-bottom:-16px;	
+	}
+
+table{
+	width:350px;
+	height:380px;
+	}
+#forget_pass a{
+	text-decoration:none;
+	color:#1291EC;
+	
+	}
