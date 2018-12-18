@@ -31,8 +31,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr>
 							<td id="tr_font"> 查询时间</td>
 							<td id="tr_double">
-							<input class="laydate-icon" id="demo" style="height:24px;width:100px;border-radius:5px 5px 5px 5px" value="2018-9-10" name="startdate" >-
-	                        <input class="laydate-icon" id="demo1" style="height:24px;width:100px;border-radius:5px 5px 5px 5px" value="2018-9-10" name="enddate"></td>
+							<input class="laydate-icon" id="demo" style="height:24px;width:100px;border-radius:5px 5px 5px 5px" value="2017-12-30" name="startdate" >-
+	                        <input class="laydate-icon" id="demo1" style="height:24px;width:100px;border-radius:5px 5px 5px 5px" value="2018-12-12" name="enddate"></td>
 							<td id="tr_font">项目团队</td>
 							<td id="tr_font"><select id="select_team" name="teamname" >
 								<option value="">请选择</option>

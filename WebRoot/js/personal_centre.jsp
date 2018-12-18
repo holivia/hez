@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,com.hez.domain.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -20,7 +20,67 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="javascript/jquery.js"></script>
 <script src="javascript/highcharts.js"></script>
   </head>
-  
+   <% 
+   
+   List<Overtime> durationList =(List<Overtime>)request.getAttribute("durationList");
+	 int[] durationteam1Overtimes= new int[3];	
+	 int[] durationteam2Overtimes= new int[3];	
+	 String durationteam1Name=null;
+	 String durationteam2Name=null;
+	 String[] durationmon=new String[3];
+	 int j=0,k=0,x=0;
+  	 for(int i=0;i<6;i++){
+		Overtime overtime=(Overtime)durationList.get(i);
+		if(overtime.getTeam().getId()==1){
+			durationteam1Overtimes[j++] = overtime.getDuration();
+			durationteam1Name=overtime.getTeam().getName();
+			durationmon[x++]=overtime.getMealcoupon();
+		}else if(overtime.getTeam().getId()==2){
+			durationteam2Overtimes[k++] = overtime.getDuration();
+			durationteam2Name=overtime.getTeam().getName();
+		}
+	}
+	
+	
+	List<Overtime> dayoffList =(List<Overtime>)request.getAttribute("dayoffList");
+	 int[] dayoffteam1Overtimes= new int[3];	
+	 int[] dayoffteam2Overtimes= new int[3];	
+	 String dayoffteam1Name=null;
+	 String dayoffteam2Name=null;
+	 String[] dayoffmon=new String[3];
+	 int dayoffj=0,dayoffk=0,dayoffx=0;
+  	 for(int i=0;i<6;i++){
+		Overtime overtime=(Overtime)dayoffList.get(i);
+		if(overtime.getTeam().getId()==1){
+			dayoffteam1Overtimes[dayoffj++] = overtime.getDayoff();
+			dayoffteam1Name=overtime.getTeam().getName();
+			dayoffmon[dayoffx++]=overtime.getMealcoupon();
+		}else if(overtime.getTeam().getId()==2){
+			dayoffteam2Overtimes[dayoffk++] = overtime.getDayoff();
+			dayoffteam2Name=overtime.getTeam().getName();
+		}
+	}
+	
+	
+	List<Overtime> assignmentList =(List<Overtime>)request.getAttribute("assignmentList");
+	 int[] assignmentteam1Overtimes= new int[3];	
+	 int[] assignmentteam2Overtimes= new int[3];	
+	 String assignmentteam1Name=null;
+	 String assignmentteam2Name=null;
+	 String[] assignmentmon=new String[3];
+	 int assignmentj=0,assignmentk=0,assignmentx=0;
+  	 for(int i=0;i<6;i++){
+		Overtime overtime=(Overtime)assignmentList.get(i);
+		if(overtime.getTeam().getId()==1){
+			assignmentteam1Overtimes[assignmentj++] = overtime.getAssignment();
+			assignmentteam1Name=overtime.getTeam().getName();
+			assignmentmon[assignmentx++]=overtime.getMealcoupon();
+		}else if(overtime.getTeam().getId()==2){
+			assignmentteam2Overtimes[assignmentk++] = overtime.getAssignment();
+			assignmentteam2Name=overtime.getTeam().getName();
+		}
+	}
+%>
   <body>
     <div id="divtop"></div>
     <div id="div_pinfo">
@@ -30,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr>
 							<td id="td_name">金莲莲</td>
 							<td id="text_g">&#91;200015&#93;</td>
-							<td id="text_c"><img id="center_lock" src="images/center_lock.png" /><a href="js/password_update.jspjs/password_update.jsp">修改密码</a></td>
+							<td id="text_c"><img id="center_lock" src="images/center_lock.png" /><a href="js/password_update.jsp">修改密码</a></td>
 							<td id="text_c"><img id="update_img" src="images/update.png" />更新</td>
 						</tr>
 					</table>
@@ -97,10 +157,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div id="div_title">
-			<div id="title_d">在线登记</div>
-			<div id="title_d">工时查询</div>
-			<div id="title_d">统计报表</div>
-			<div id="title_d">员工信息</div>
+			<div id="title_d"><a href="">在线登记</a></div>
+			<div id="title_d"><a href="selectOvertime">工时查询</a></div>
+			<div id="title_d"><a href="selectForChart">统计报表</a></div>
+			<div id="title_d"><a href="employee_info">员工信息</a></div>
 			<div id="title_d">团队信息</div>			
 		</div>
 		
@@ -124,7 +184,7 @@ $(document).ready(function() {
    };
  
    var xAxis = {
-      categories: ['Jan','Feb','Mar'],
+      categories: ['<%= durationmon[0]%>','<%= durationmon[1]%>','<%= durationmon[2]%>'],
       crosshair: true
    };
    var yAxis = {
@@ -151,12 +211,13 @@ $(document).ready(function() {
       enabled: false
    };
    
+        	
    var series= [{
-        name: 'Tokyo',
-            data: [49.9, 71.5, 106.4]
+   			name: '<%= durationteam1Name %>',
+            data: [<%= durationteam1Overtimes[0]%>, <%= durationteam1Overtimes[1]%>, <%= durationteam1Overtimes[2]%>]
         },{
-            name: 'Berlin',
-            data: [42.4, 33.2, 34.5]
+            name: '<%= durationteam2Name %>',
+            data: [<%= durationteam2Overtimes[0]%>, <%= durationteam2Overtimes[1]%>, <%= durationteam2Overtimes[2]%>]
    }];     
       
    var json = {};   
@@ -184,13 +245,13 @@ $(document).ready(function() {
    };
  
    var xAxis = {
-      categories: ['Jan','Feb','Mar'],
+      categories: ['<%= dayoffmon[0]%>','<%= dayoffmon[1]%>','<%= dayoffmon[2]%>'],
       crosshair: true
    };
    var yAxis = {
       min: 0,
       title: {
-         text: '工时[h]'         
+         text: '请假[h]'         
       }      
    };
    var tooltip = {
@@ -212,11 +273,11 @@ $(document).ready(function() {
    };
    
    var series= [{
-        name: 'Tokyo',
-            data: [49.9, 71.5, 106.4]
+      		name: '<%= dayoffteam1Name %>',
+            data: [<%= dayoffteam1Overtimes[0]%>, <%= dayoffteam1Overtimes[1]%>, <%= dayoffteam1Overtimes[2]%>]
         },{
-            name: 'Berlin',
-            data: [42.4, 33.2, 34.5]
+            name: '<%= dayoffteam2Name %>',
+            data: [<%= dayoffteam2Overtimes[0]%>, <%= dayoffteam2Overtimes[1]%>, <%= dayoffteam2Overtimes[2]%>]
    }];     
       
    var json = {};   
@@ -245,13 +306,13 @@ $(document).ready(function() {
    };
  
    var xAxis = {
-      categories: ['Jan','Feb','Mar'],
+      categories: ['<%= assignmentmon[0]%>','<%= assignmentmon[1]%>','<%= assignmentmon[2]%>'],
       crosshair: true
    };
    var yAxis = {
       min: 0,
       title: {
-         text: '工时[h]'         
+         text: '任务单[h]'         
       }      
    };
    var tooltip = {
@@ -273,11 +334,11 @@ $(document).ready(function() {
    };
    
    var series= [{
-        name: 'Tokyo',
-            data: [49.9, 71.5, 106.4]
+       		name: '<%= assignmentteam1Name %>',
+            data: [<%= assignmentteam1Overtimes[0]%>, <%= assignmentteam1Overtimes[1]%>, <%= assignmentteam1Overtimes[2]%>]
         },{
-            name: 'Berlin',
-            data: [42.4, 33.2, 34.5]
+            name: '<%= assignmentteam2Name %>',
+            data: [<%= assignmentteam2Overtimes[0]%>, <%= assignmentteam2Overtimes[1]%>, <%= assignmentteam2Overtimes[2]%>]
    }];     
       
    var json = {};   

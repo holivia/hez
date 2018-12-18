@@ -32,7 +32,10 @@
     <servlet-name>springmvc</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  
+   <servlet-mapping>
+        <servlet-name>jsp</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
   <!-- 编码过滤器 -->
   <!-- 编码过滤器 -->
   <filter>

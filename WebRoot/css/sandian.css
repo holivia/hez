@@ -1,0 +1,131 @@
+@CHARSET "UTF-8";
+body{
+	background:#E9EDF1;
+	}
+#backg{
+    padding-top:4px;
+    padding-left:10px;
+    background:white;
+}
+
+#home_top{
+	background: #006CE0;
+	color:#FFFFFF;
+	width: 100%;
+	height: 48px;
+	font-size:12px;
+	border:1px;
+}
+
+#div_menu{
+	width:48px;
+	height:43px;
+	background: blue;
+	padding-top:5px;
+}
+#span_menu{
+	padding-top:12px;
+	padding-left:10px;
+	margin-left: 5px;
+	margin-top:-48px;
+    text-align:center;
+	background: blue;
+	height:35px;
+	width:100px;
+}
+#font_fu{
+	margin-left: 80px;
+	margin-top: -47px;
+	height:48px;
+}
+
+.date{
+     text-align: center;
+     background-color: 	#E2F5F5;
+     margin-top: 8px;
+     margin-left:0px;
+     height: 40px;
+     width: 100%;
+}
+
+.juzhong{
+	padding-top: 12px;
+	text-align: left;
+}
+#chaxun{
+	height:35px;
+	width:80px;
+
+	color: white;
+	text-align:center;
+	background:#3185D8;
+	border-radius:5px 5px 5px 5px;
+	
+	}
+
+#bottom-left{
+	background-color: white;
+	width:49%;
+	height:450px;
+	margin-top: 8px;
+	margin-left: 10px;
+
+}
+#bottom-right{
+	background-color: white;
+	width:57%;
+	height:450px;
+	margin-left: 547px;
+	margin-top: -449px;
+}
+.td_border{
+	border: dashed 1px gainsboro;
+	width:498px;
+	height:380px;
+	margin-left: 15px;
+	margin-top: 18px;
+}
+.td_border2{
+	border: dashed 1px gainsboro;
+	width:681px;
+	height:380px;
+	margin-left: 15px;
+	margin-top: 18px;
+}
+.home_bottom{
+	width: 100%;
+	height:32px;
+	background-color:#E2E6E9;
+	margin-top: 12px;
+}
+
+.r1{
+	text-align: center;
+	color:#8D8D8D;
+	font-size: 14px;
+	width: 1280px;	
+}
+
+.title_information{
+	margin-left: 25px;
+	font-family: '黑体';
+	font-weight: bold;
+	padding-top: 10px;
+	}
+	
+.line{
+	background-color:#FF8328;
+	width:4px;
+	height:15px;
+	margin-left: 15px;
+	margin-top: 12px;
+	position: absolute;
+	
+}
+
+.home_bottom{
+	width: 100%;
+	height:32px;
+	background-color:#E2E6E9;
+	margin-top: 12px;
+}

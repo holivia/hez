@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+   <head>
+       <title>报表统计1</title>
+	   <link rel="stylesheet" type="text/css" href="../css/sandian.css">
+	   <link rel="stylesheet" href="../css/yuanhuan.css">
+	   <script src="../js/ichart.1.2.1.min.js"></script>
+       <script src='../js/yuanhuan.js'></script>
+       <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+       <script type="text/javascript" src="../js/jquery.calendar.js"></script>
+       
+       <script src="../js/highcharts.js"></script>
+       <script src="../js/highcharts-more.js"></script>
+       <script src="../js/highcharts-zh_CN.js"></script>
+       <script src="../js/sandian.js"></script>
+<style type="text/css">
+		*{margin:0;padding:0}
+	input{margin-top:0px;margin-left:0px;border:1px solid #AFAFAF;
+	line-height:25px;font-size:10pt;width:200px;height:30px; text-align:center; border-color:#535353}
+</style>
+    </head>
+
+<body>
+   <div id="home_top">   	  		
+    			<div id="div_menu"><img src="../images/menu.png" /></div>
+    			<div id="span_menu">全部菜单</div>
+    			<div id="font_fu"><img src="../images/font.png"/></div>     	    
+    </div>
+    
+    <div id="backg"/><!--查询时间白色底纹                    -->
+    <div class="date"/> <!--查询日历蓝色底纹                     -->
+    查询时间
+    <input type="text" readonly="readonly" class="startTime"/>-
+       <input type="text"  readonly="readonly" class="startTime"/>
+       <input id="chaxun" type="button" value="查询"/>
+   </div>
+    
+    
+    
+			<div id="bottom-left">
+			    <div class="line"></div>
+				<div class="title_information">团队工时统计</div>
+				<div class="td_border">
+					<div id="canvasDiv" style="padding-right: 81px; padding-top: 40px;"></div>
+				</div>
+			</div>
+			
+			
+			<div id="bottom-right">
+				<div class="line"></div>
+				<div class="title_information">员工工时统计</div>
+				<div class="td_border2">
+                     <div id="container1" style="height: 370px;width:580px; margin: 0 auto; z-index:-1">
+				     </div>
+                   </div>	
+				</div>
+			</div>
+			
+			
+			
+		<div class="home_bottom">
+		     <div class="r1">Copyright &copy; 2015 中国电信股份有限公司福建分公司 。All Rights Reserved</div>
+		</div>
+		</div>
+		<div class="home_bottom">
+		     <div class="r1">Copyright &copy; 2015 中国电信股份有限公司福建分公司 。All Rights Reserved</div>
+		</div>
+  </body>
+  <script type="text/javascript">
+	$(".startTime").showCalendar();
+</script>
+</html>
+
+
+
+

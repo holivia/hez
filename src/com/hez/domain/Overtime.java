@@ -1,11 +1,14 @@
 package com.hez.domain;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 public class Overtime {
 	Integer id;
 	Staff staff;
 	Team team;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	Date date;		 //ÈÕÆÚ
 	StaffTeam staffteam;
 	String mealcoupon;  //²ÍÈ¯Êý

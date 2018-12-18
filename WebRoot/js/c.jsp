@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="javascript/jquery.js"></script>
 <script src="javascript/highcharts.js"></script>
   </head>
-    <% List<Overtime> OvertimeList =(List<Overtime>)session.getAttribute("durationt3MonthList");
+    <% List<Overtime> OvertimeList =(List<Overtime>)request.getAttribute("durationt3MonthList");
 	 int[] team1Overtimes= new int[3];	
 	 int[] team2Overtimes= new int[3];	
 	 String team1Name=null;

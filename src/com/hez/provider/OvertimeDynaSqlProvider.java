@@ -25,7 +25,7 @@ public class OvertimeDynaSqlProvider {
 				if((startdate!=null && !startdate.equals("")) && (enddate==null | enddate.equals(""))){
 		    		WHERE("date >= #{startdate} ");    		
 		    	}
-				if((startdate==null | startdate.equals("")) && (enddate!=null && !enddate.equals(""))){
+				if( (enddate!=null && !enddate.equals("")) && (startdate==null | startdate.equals("")) ){
 		    		WHERE("date <= #{enddate}" );    		
 		    	}
 				if(staffid!=null && teamid!=null){
@@ -51,13 +51,13 @@ public class OvertimeDynaSqlProvider {
 			SELECT("team_id, sum(duration)as totalduration");
 			FROM("overtime");
 			
-			if((startdate!=null && !startdate.equals("")) && (enddate!=null && !enddate.equals(""))){
+			if((startdate!=null && !startdate.equals("") && !startdate.equals("null")) && (enddate!=null && !enddate.equals("") && !enddate.equals("null"))){
 	    		WHERE("date between #{startdate} and #{enddate}");    		
 	    	}
-			if((startdate!=null && !startdate.equals("")) && (enddate==null | enddate.equals(""))){
+			if((startdate!=null && !startdate.equals("") && !startdate.equals("null")) && (enddate==null | enddate.equals("") | enddate.equals("null"))){
 	    		WHERE("date >= #{startdate} ");    		
 	    	}
-			if((enddate!=null && !enddate.equals("")) && (startdate==null | startdate.equals(""))  ){
+			if((enddate!=null && !enddate.equals("") && !enddate.equals("null")) && (startdate==null | startdate.equals("") | startdate.equals("null"))  ){
 	    		WHERE("date <= #{enddate}" );    		
 	    	}
 			GROUP_BY("team_id");		
@@ -76,13 +76,13 @@ public class OvertimeDynaSqlProvider {
 			SELECT("staff_id, sum(duration)as totalduration, count(duration) as times ");
 			FROM("overtime");
 			
-			if((startdate!=null && !startdate.equals("")) && (enddate!=null && !enddate.equals(""))){
+			if((startdate!=null && !startdate.equals("") && !startdate.equals("null")) && (enddate!=null && !enddate.equals("") && !enddate.equals("null"))){
 	    		WHERE("date between #{startdate} and #{enddate}");    		
 	    	}
-			if((startdate!=null && !startdate.equals("")) && (enddate==null | enddate.equals(""))){
+			if((startdate!=null && !startdate.equals("") && !startdate.equals("null")) && (enddate==null | enddate.equals("") | enddate.equals("null"))){
 	    		WHERE("date >= #{startdate} ");    		
 	    	}
-			if( (enddate!=null && !enddate.equals("")) && (startdate==null | startdate.equals(""))){
+			if((enddate!=null && !enddate.equals("") && !enddate.equals("null")) && (startdate==null | startdate.equals("") | startdate.equals("null"))  ){
 	    		WHERE("date <= #{enddate}" );    		
 	    	}
 			GROUP_BY("staff_id");

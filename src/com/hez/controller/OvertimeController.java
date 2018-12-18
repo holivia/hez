@@ -59,7 +59,7 @@ public class OvertimeController {
 		String staffname = null;
 		String staffjobnumber = null;
 		Integer staffid=null;
-		if(staffmsg!=null&!staffmsg.equals("")){
+		if(staffmsg!=null&&!staffmsg.equals("")){
 			if(staffmsg.contains("2015"))
 				staffjobnumber = staffmsg;
 			else
@@ -73,7 +73,7 @@ public class OvertimeController {
 		
 		//teamid
 		Integer teamid = null;
-		if(teamname!=null&!teamname.equals(""))
+		if(teamname!=null && !teamname.equals(""))
 			teamid= teamService.selectTeamOfStaffTeam(teamname);
 		
 		HashMap params=new HashMap();
@@ -111,7 +111,7 @@ public class OvertimeController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/selectForChart") 
+	@RequestMapping("/selectForChart_Scatter") 
 	public String selectForChart(String startdate,String enddate,Integer durationOrder,Integer timesOrder,Model model){
 		
 		HashMap params=new HashMap();	
@@ -129,11 +129,68 @@ public class OvertimeController {
 			
 		}
 		
-		model.addAttribute("sum", sum);	
-		model.addAttribute("pie", pie);	
-		model.addAttribute("Scatter_List", Scatter_List);
-		return "x.jsp";
+		StringBuilder stringBuilder = new StringBuilder();
+		for(int i=0;i<pie.size();i++){
+			Overtime overtime=(Overtime)pie.get(i);
+			stringBuilder.append(overtime.getTeam().getName()+"-");	
+			stringBuilder.append(overtime.getDuration()+" ");				
+		}
+		String stringPie=stringBuilder.toString();
+		
+		StringBuilder stringBuilder1 = new StringBuilder();
+		for(int i=0;i<Scatter_List.size();i++){
+			Overtime overtime=(Overtime)Scatter_List.get(i);
+			stringBuilder1.append(overtime.getMealcoupon()+"-");
+			stringBuilder1.append(overtime.getDuration()+"-");
+			stringBuilder1.append(overtime.getStaff().getName()+" ");		
+		}
+		String stringSL=stringBuilder1.toString();
+		
+		model.addAttribute("sum", String.valueOf(sum));	
+		model.addAttribute("pie", stringPie);	
+		model.addAttribute("scatter_List", stringSL);
+		model.addAttribute("startdate",startdate);
+		model.addAttribute("enddate",enddate);
+		return "html/sanDian.jsp";
 	}
+		
+	@RequestMapping("/selectForChart_List") 
+	public String selectForChart_List(String startdate,String enddate,Integer durationOrder,Integer timesOrder,Model model){
+		
+		HashMap params=new HashMap();	
+		params.put("startdate", startdate);
+		params.put("enddate", enddate);
+		params.put("durationOrder", durationOrder);
+		params.put("timesOrder", timesOrder);
+		
+		List<Overtime> pie=overtimeService.selectForPie(params);
+		List<Overtime> Scatter_List=overtimeService.selectForScatter_List(params);
+		int sum=0;
+		for(int i=0;i<pie.size();i++){
+			Overtime overtime=(Overtime)pie.get(i);
+			sum = sum+overtime.getDuration();
+			
+		}
+		
+		StringBuilder stringBuilder = new StringBuilder();
+		for(int i=0;i<pie.size();i++){
+			Overtime overtime=(Overtime)pie.get(i);
+			stringBuilder.append(overtime.getTeam().getName()+"-");	
+			stringBuilder.append(overtime.getDuration()+" ");				
+		}
+		String stringPie=stringBuilder.toString();
+		
+		
+	
+		
+		model.addAttribute("sum", String.valueOf(sum));	
+		model.addAttribute("pie", stringPie);	
+		model.addAttribute("scatter_List", Scatter_List);
+		model.addAttribute("startdate",startdate);
+		model.addAttribute("enddate",enddate);
+		return "html/worktime.jsp";
+	}
+	
 	
 	
 	
@@ -155,16 +212,22 @@ public class OvertimeController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/selectForDuration_dayoff_assignment") 
+	@RequestMapping("/selectInfo") 
 	public  String selectForDuration_dayoff_assignment(Model model){
-		List<Overtime> durationtList =overtimeService.selectForDuration();
+		List<Overtime> durationList =overtimeService.selectForDuration();
 		List<Overtime> dayoffList =overtimeService.selectForDayoff();
 		List<Overtime> assignmentList =overtimeService.selectForAssignment();
-		model.addAttribute("durationtList",durationtList);
+		model.addAttribute("durationList",durationList);
 		model.addAttribute("dayoffList",dayoffList);
 		model.addAttribute("assignmentList",assignmentList);
-		return "z.jsp";
+		return "js/personal_centre.jsp";
 	}
 	
+	@RequestMapping("/key") 
+	public  String qw(Model model){
+		
+		model.addAttribute("bb","1111");
+		return "x/test.html";
+	}
 	
 }
