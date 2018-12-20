@@ -26,8 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
    	<div id="div_pinfo">		
 	<div id="table_out">
-	<form action="insetTeamSub" method="post">
-		<table align="center" cellspacing="0" cellpadding="0" width="500" height="50" border=1>
+	<form action="insetTeam" method="post">
+		<table align="center" cellspacing="0" cellpadding="0" width="500" height="50" border=1 >
             <tr>            	
                 <td>团队名称</td>
                 <td><input type="hidden" name="teamid" value="1">

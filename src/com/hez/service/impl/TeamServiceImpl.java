@@ -54,7 +54,7 @@ public class TeamServiceImpl implements TeamService {
 		return teamDao.updateTeamSub(teamSub);
 	}
 
-	public List<TeamSub> selectTeamSubView(int id) {
+	public List<TeamSub> selectTeamSubsView(int id) {
 		// TODO Auto-generated method stub
 		return teamDao.selectTeamSubsView(id);
 	}
@@ -68,6 +68,18 @@ public class TeamServiceImpl implements TeamService {
 		// TODO Auto-generated method stub
 		return teamDao.deleteTeamSubOfTeam();
 	}
+
+	public int selectTeamCode(String code) {
+		// TODO Auto-generated method stub
+		return teamDao.selectTeamCode(code);
+	}
+
+	public TeamSub selectTeamSubView(int id) {
+		// TODO Auto-generated method stub
+		return teamDao.selectTeamSubView(id);
+	}
+
+
 
 	
 	

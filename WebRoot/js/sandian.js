@@ -1,7 +1,6 @@
 $(function () {
 		if(array!=""){
 		array=array.split(" "); //array分割，自动转为数组
-		
 		for(var i = 0; i < array.length; i=i+1 ){
 			//document.write(array[i]+"</br>");
 			array[i]=array[i].split("-"); //array[i]分割
@@ -304,110 +303,100 @@ $(function () {
 		{
 			
             data: [
-               { x: Number(array[1][0]), y: Number(array[1][1]), z:7, name:""+array[1][2],color:'green', },
+               { x: Number(array[1][0]), y: Number(array[1][1]), z:7, name:""+array[1][2],color:'blue', },
             ],
 			name:""+array[1][2]
         },
-		{
+        {
 			
             data: [
-               { x: 86.5, y: 102.9, z: 7, name: '琳琳',color:'green', },
+               { x: Number(array[2][0]), y: Number(array[2][1]), z:7, name:""+array[2][2],color:'green', },
             ],
-			name:'琳琳'
+			name:""+array[2][2]
         },
-		{
+        {
 			
             data: [
-              { x: 80.8, y: 91.5, z: 7, name: '郭伊纳',color:'blue', },
+               { x: Number(array[3][0]), y: Number(array[3][1]), z:7, name:""+array[3][2],color:'orange', },
             ],
-			name:'郭伊纳'
+			name:""+array[3][2]
         },
-		{
+{
 			
             data: [
-             { x: 80.4, y: 102.5, z: 7, name: '何亚丽', color:'orange', },
+               { x: Number(array[4][0]), y: Number(array[4][1]), z:7, name:""+array[4][2],color:'orange', },
             ],
-			name:'何亚丽'
+			name:""+array[4][2]
         },
-		{
+{
 			
             data: [
-              { x: 80.3, y: 86.1, z: 7, name: '黄盼盼', },
+               { x: Number(array[5][0]), y: Number(array[5][1]), z:7, name:""+array[5][2],color:'orange', },
             ],
-			name:'黄盼盼'
+			name:""+array[5][2]
         },
-		{
+{
 			
             data: [
-              { x: 78.4, y: 70.1, z:7, name: '李婷婷',color:'blue',  },
+               { x: Number(array[6][0]), y: Number(array[6][1]), z:7, name:""+array[6][2],color:'orange', },
             ],
-			name:'李婷婷'
+			name:""+array[6][2]
+        },	
+{
+			
+            data: [
+               { x: Number(array[7][0]), y: Number(array[7][1]), z:7, name:""+array[7][2],color:'orange', },
+            ],
+			name:""+array[7][2]
+        },	
+{
+			
+            data: [
+               { x: Number(array[8][0]), y: Number(array[8][1]), z:7, name:""+array[8][2],color:'orange', },
+            ],
+			name:""+array[8][2]
         },
-		{
+{
 			
             data: [
-             { x: 74.2, y: 68.5, z:7, name: '沈夏琳', color:'orange', },
+               { x: Number(array[9][0]), y: Number(array[9][1]), z:7, name:""+array[9][2],color:'orange', },
             ],
-			name:'沈夏琳'
+			name:""+array[9][2]
         },
-			
-			
-            {
+{
 			
             data: [
-             { x: 73.5, y: 83.1, z: 7, name: '庄雅燕',  },
+               { x: Number(array[10][0]), y: Number(array[10][1]), z:7, name:""+array[10][2],color:'blue', },
             ],
-			name:'庄雅燕'
+			name:""+array[10][2]
         },
-		{
+{
 			
             data: [
-             { x: 71, y: 93.2, z:7, name: '方程点',  },
+               { x: Number(array[11][0]), y: Number(array[11][1]), z:7, name:""+array[11][2],color:'orange', },
             ],
-			name:'方程点'
+			name:""+array[11][2]
         },
-		{
+{
 			
             data: [
-            { x: 69.2, y: 57.6, z:7, name: '郑思木',  },
+               { x: Number(array[12][0]), y: Number(array[12][1]), z:7, name:""+array[12][2],color:'red', },
             ],
-			name:'郑思木'
+			name:""+array[12][2]
         },
-		{
+{
 			
             data: [
-             { x: 68.6, y: 20, z:7, name: '宝清',color:'orange',  },
+               { x: Number(array[13][0]), y: Number(array[13][1]), z:7, name:""+array[13][2], },
             ],
-			name:'宝清'
+			name:""+array[13][2]
         },
-		{
+{
 			
             data: [
-            { x: 65.5, y: 126.4, z:7, name: '蒋伶俐', },
+               { x: Number(array[14][0]), y: Number(array[14][1]), z:7, name:""+array[14][2],color:'orange', },
             ],
-			name:'蒋伶俐'
-        },
-		{
-			
-            data: [
-            { x: 65.4, y: 50.8, z:7, name: '陆巧敏',color:'blue',  },
-            ],
-			name:'陆巧敏'
-        },
-		{
-			
-            data: [
-            { x: 63.4, y: 51.8, z: 7, name: '秋瑾琳',  },
-            ],
-			name:'秋瑾琳'
-        },
-		{
-			
-            data: [
-             { x: 64, y: 82.9, z: 20, name: '黄辉祥', color:'blue', }
-            ],
-			
-			name:'黄辉祥'
+			name:""+array[14][2]
         },
 		],
 		

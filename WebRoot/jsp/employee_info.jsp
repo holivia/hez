@@ -13,11 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<body>
 	<form action="alter_infoView" method="post">
-	<div id="home_top">   	  		
-    	<div id="div_menu"><img src="images/menu.png" /></div>
-    	<div id="span_menu">全部菜单</div>
-    	<div id="font_fu"><img src="images/font.png"/></div>     	    
-   </div>
+	
    	<div id="div_pinfo">
 		<div>
 			<div class="line"></div>
@@ -62,8 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div style="width:100%;float:left;">
 		<c:forEach items="${staffTeamList}" var="list">
 		<div id="p_information" style="float:left;">
-			<table class="title_d">
-			
+			<table class="title_d">			
 				<tr>
 					<td class="r1">团队编号：</td>
 					<td class="p_content">${list.team.code}</td>

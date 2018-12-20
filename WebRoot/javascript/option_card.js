@@ -24,8 +24,9 @@ $(function() {
 				} else if (nowgeshu == 8) {
 					alert('您已打开了8个标签。请关闭部分标签后再打开新标签！');
 					return false;
-				}
+				}								
 			})
+			
 			$('#div6').on('click','ul li a span:last-child',function(event){
 				if($(this).parent().hasClass('now')){
 					$('#div6 ul li a').eq($('#div6 ul li').length-2).addClass('now');
@@ -34,7 +35,8 @@ $(function() {
 				$(this).parent().parent().remove();
 				$('#div3 iframe').eq(index).remove();
 				if($('#div3 iframe:visible').length==0){
-					$('#div3 iframe:last-child').show();
+					$('#div3 iframe:last-child').show(); 
+					$("#button-right").show();
 				}
 				event.stopPropagation();
 			})
@@ -47,4 +49,7 @@ $(function() {
 					 $('#div3 iframe').hide().eq(index).show();
 				}
 			})
-		})
+			
+})	
+		
+

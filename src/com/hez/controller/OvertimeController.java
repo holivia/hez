@@ -1,15 +1,20 @@
 package com.hez.controller;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.hez.domain.Overtime;
 import com.hez.domain.Staff;
 import com.hez.domain.StaffTeam;
@@ -113,7 +118,6 @@ public class OvertimeController {
 	 */
 	@RequestMapping("/selectForChart_Scatter") 
 	public String selectForChart(String startdate,String enddate,Integer durationOrder,Integer timesOrder,Model model){
-		
 		HashMap params=new HashMap();	
 		params.put("startdate", startdate);
 		params.put("enddate", enddate);
@@ -198,10 +202,27 @@ public class OvertimeController {
 	 * select Durationt3Month
 	 * @param model
 	 * @return
+	 * @throws UnsupportedEncodingException 
+	 * 
+	 * @RequestParam :get method invoke request, can use this way get param
 	 */
 	@RequestMapping("/mainForm") 
-	public  String selectForDurationt3Month(HttpSession session,Model model){
+	public  String selectForDurationt3Month(
+			@RequestParam("resetPassword")String resetPassword,
+			@RequestParam("emailInfo")String emailInfo,HttpSession session,
+			HttpServletRequest req,Model model) throws UnsupportedEncodingException{		
+		if(!resetPassword.equals("")){
+			String repass=new String(resetPassword.getBytes("iso-8859-1"),"utf-8");
+			model.addAttribute("resetPassword", repass);
+		}
+		if(!emailInfo.equals("")){
+			String email=new String(emailInfo.getBytes("iso-8859-1"),"utf-8");
+			model.addAttribute("emailInfo", email);
+		}
+		
+		
 		List<Overtime> durationt3MonthList =overtimeService.selectForDurationt3Month();
+		
 		model.addAttribute("durationt3MonthList",durationt3MonthList);
 		return "js/main.jsp";
 	}

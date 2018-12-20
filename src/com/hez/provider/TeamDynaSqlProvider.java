@@ -64,6 +64,12 @@ public class TeamDynaSqlProvider {
 			if(team.getCode()!=null && !team.getCode().equals("")){
 				VALUES("code ", "#{code }");
 			}
+			if(team.getResponsible()!=null && !team.getResponsible().equals("")){
+				VALUES("responsible ", "#{responsible }");
+			}
+			if(team.getCreateTime()!=null && !team.getCreateTime().equals("")){
+				VALUES("createTime ", "#{createTime }");
+			}
 		}}.toString();
 	}
 	
@@ -81,7 +87,13 @@ public class TeamDynaSqlProvider {
 				VALUES("place", "#{place }");
 			}
 			if(teamSub.getCode()!=null && !teamSub.getCode().equals("")){
-				VALUES("code ", "#{code }");
+				VALUES("code", "#{code }");
+			}
+			if(teamSub.getResponsible()!=null && !teamSub.getResponsible().equals("")){
+				VALUES("responsible ", "#{responsible }");
+			}
+			if(teamSub.getCreateTime()!=null && !teamSub.getCreateTime().equals("")){
+				VALUES("createTime ", "#{createTime }");
 			}
 		}}.toString();
 	}

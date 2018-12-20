@@ -2,7 +2,10 @@ package com.hez.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.One;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -32,4 +35,10 @@ public interface StaffTeamDao {
 		@Result(column="team_id",property="team",one=@One(select="com.hez.dao.TeamDao.selectTeamView",fetchType=FetchType.EAGER)),
 	})
 	public List<StaffTeam> selectTeams(int staffid);
+	
+	@Insert("insert into staffteam values( #{staff_id},#{team_id} )")
+	public int insertStaffTeam(@Param("staff_id")int staff_id, @Param("team_id")int team_id);
+	
+	@Delete("delete from staffteam where team_id=#{id}")  
+	public int deleteStaffTeam(int id);
 }

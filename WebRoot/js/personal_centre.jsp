@@ -157,11 +157,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div id="div_title">
-			<div id="title_d"><a href="">在线登记</a></div>
+			<div id="title_d"><a href="js/line_record.jsp">在线登记</a></div>
 			<div id="title_d"><a href="selectOvertime">工时查询</a></div>
-			<div id="title_d"><a href="selectForChart">统计报表</a></div>
+			<div id="title_d"><a href="selectForChart_Scatter">统计报表</a></div>
 			<div id="title_d"><a href="employee_info">员工信息</a></div>
-			<div id="title_d">团队信息</div>			
+			<div id="title_d"><a href="select_team_teamSub">团队信息</a></div>			
 		</div>
 		
 		<div id="div_left">

@@ -41,7 +41,15 @@ public interface TeamDao {
 	@Select("select * from teamSub where team_id=#{id}")	
 	public List<TeamSub> selectTeamSubsView(int id);	
 	
-	@SelectProvider(type=TeamDynaSqlProvider.class,method="selectTeams")
+	@Select("select * from teamSub where id=#{id}")	// #{id}:Team类的id属性
+	public TeamSub selectTeamSubView(int id);//找到指定数据显示在要修改的页面	
+	
+	@Select("select id from team where code=#{code}")	
+	public int selectTeamCode(String code);	
+	
+	
+	
+	@SelectProvider(type=TeamDynaSqlProvider.class,method="selectTeams")	
 	@Results({
 				//1：n
 		@Result(column="id",property="teamSubs",many=@Many(select="com.hez.dao.TeamDao.selectTeamSubsView",fetchType=FetchType.EAGER))
@@ -55,6 +63,8 @@ public interface TeamDao {
 	public int deleteTeam(int id);
 	@Delete("delete from TeamSub where team_id is null")
 	public int deleteTeamSubOfTeam();
+	
+	
 	
 	@InsertProvider(type=TeamDynaSqlProvider.class,method="insertTeam") 
 	public int insertTeam(Team team);

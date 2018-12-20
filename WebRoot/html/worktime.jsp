@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,com.hez.domain.*" pageEncoding="utf-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</style>
        
        <%
-			
+			List<Overtime> list=(List<Overtime>)request.getAttribute("scatter_List");
 			String pie=(String)request.getAttribute("pie");
 			String totalDuration=(String)request.getAttribute("sum");
 		%>
@@ -53,13 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 		
 	
-  <body ">
-	<div id="home_top">   	  		
-    			<div id="div_menu"><img src="images/menu.png" /></div>
-    			<div id="span_menu">全部菜单</div>
-    			<div id="font_fu"><img src="images/font.png"/></div>     	    
-    </div>
-    
+  <body ">   
     <div id="backg"/><!--查询时间白色底纹                    -->
     <div class="date"/> <!--查询日历蓝色底纹                     -->
     
@@ -97,41 +91,79 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div >
 				<input type="hidden" value=<%=sd %> name="startdate" />
 				<input type="hidden" value=<%=ed %> name="enddate" />
-				<input type="submit" value="散点图查看" style=" position:absolute;top:120px;right:100px;z-index:2"></input>
+				<input type="submit" value="散点图查看" style=" position:absolute;top:70px;right:100px;z-index:2"></input>
 				</div>
 			</form>
 					
 					
 				</div>
-				<div class="td_border2">
-                     <div id="container1" style="height: 370px;width: 600px;margin: 0 auto;top: 180;position: absolute;">
-                     	
+			<div class="td_border2">
+				      	
 				<input id="th1" type="button" value="工时降序" class="paixu" onclick="SortTable(this)"/>
 				<input id="th2" type="button" value="次数升序" class="paixu" onclick="SortTable(this)" />
+				<%
 				
+				 %>
+                  	 	
+			<%
+			int i=0;int count=1;
+			while(true){
+				if(count>2) break;
+				if(i==0){			
+           	 %> 
+             	<div id="container1" style="height: 370px;width: 600px;margin: 0 auto;top: 130;position: absolute;"> 
+             	<table border="0" cellspacing="0" cellpadding="2" align="center"  >	
+				 	<tr>
+						<th>姓名</th>
+						<th>工时[H]</th>
+						<th>次数[次]</th>
+					</tr>
+             	<%
+             	}else if(i==9){
+             	%>
+  
+   
+             	<table border="0" cellspacing="0" cellpadding="2" align="center"  style=" margin-top: -350;right: 100px;position: absolute;">	
+				 	<tr>
+						<th>姓名</th>
+						<th>工时[H]</th>
+						<th>次数[次]</th>
+					</tr>
+             	<%
+             	}
+             	 %>
+				 	
+				<%
+             	for(int j=i;j<list.size();j++){
+             		if(i==0&&j==9){
+             			i=9;
+             			break;
+             		}
+             		
+					Overtime ot=list.get(j);
 				
-				<table border="0" cellspacing="0" cellpadding="2" align="center">
-						<tr>
-							<th>姓名</th>
-							<th>工时[H]</th>
-							<th>次数[次]</th>
-						</tr>
-				<c:forEach items="${scatter_List}" var="list">
-						<tr>
-							<td name="td0">${list.staff.name }</td>
-							<td name="td1">${list.duration}</td>
-							<td name="td2">${list.mealcoupon}</td>
-						</tr>						
-			     	<tr>	   				
-              </c:forEach>
-				</table>
-				     </div>
-                   </div>	
-				</div>
-			</div>
+             	 %> 
+             	 	<tr>
+						<td name="td0"><%=ot.getStaff().getName() %></td>
+						<td name="td1"><%=ot.getDuration() %></td>
+						<td name="td2"><%=ot.getMealcoupon() %></td>
+					</tr>	
+				<%
+				}
+				 %>					
+										         
+			   	</table>
+			<%
+				count=count+1;
+				
+			}
+			 %>
 			
 			
+		</div>
 			
+	</div>		
+</div>			
 		
 		
 		<div class="home_bottom">

@@ -13,11 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<body>
 	<form action="alter_info" method="post">
-	<div id="home_top">   	  		
-    	<div id="div_menu"><img src="images/menu.png" /></div>
-    	<div id="span_menu">全部菜单</div>
-    	<div id="font_fu"><img src="images/font.png"/></div>     	    
-   </div>
+	
    	<div id="div_pinfo">
 		<div>
 			<div class="line"></div>
@@ -71,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<td class="r1">团队编号：</td>
 					<td class="p_content">${list.team.code}</td>					
-					<td><img src="images/close.png"></td>
+					<td><a href="deleteTeam?id=${list.team.id }"><img src="images/close.png"></a></td>
 				</tr>
 				<tr>
 					<td class="r1">团队名称：</td>
@@ -92,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div id="p_information" style="float:left;width:200px;height:115px;">
 			<table class="add">
 				<tr>
-					<td align="center"><img src="images/add.png" width="120px" height="100px;"/></td>
+					<td align="center"><a href="jsp/new_info.jsp"><img src="images/add.png" width="120px" height="100px;"/></a></td>
 				</tr>
 			</table>
 		</div>

@@ -14,20 +14,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
 	</head>
 	<body>
-	<div id="home_top">   	  		
-    	<div id="div_menu"><img src="images/menu.png" /></div>
-    	<div id="span_menu">全部菜单</div>
-    	<div id="font_fu"><img src="images/font.png"/></div>     	    
-   </div>
+	
    	<div id="div_pinfo">
 		
 		<div id="div_out">
+		<form action="select_team_teamSub" method="post">
 			<table>
 				<tr>
-					<td class="r1"><input size="30" type="text" value="请输入团队名称/负责人"/></td>
-					<td class="p_content"><input id="immediately_check" type="button" value="查询"/></td>
+					<td class="r1"><input size="30" type="text" name="teamcheck" value="请输入团队名称/负责人" onfocus="javascript:if(this.value=='请输入团队名称/负责人')this.value='';"/></td>
+					<td class="p_content"><input id="immediately_check" type="submit" value="查询"/></td>
 				</tr>
 			</table>
+			</form>
 		</div>
 	<div class="table-a" id="table_out">
 		<table align="center" border="0" cellspacing="0" cellpadding="0" width="1000" height="50">
@@ -43,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <tbody>
         <c:forEach items="${teamList}" var="list" >
             <tr class="parent" >
-                <td>
+                <td align="left">
                 <input type="hidden" value="${list.code}">
         			<img src="images/bg09.png" id="image"/>
         			${list.name}</td>
@@ -51,9 +49,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <td>${list.responsible}</td>
                 <td><fmt:formatDate value="${list.createTime }" pattern="yyyy-MM-dd"/></td>
                 <td>
-                	<div id="title_d"><a href="new_team.jsp">新增子节点</a></div>
-					<div id="title_d"><a href="alter_team.jsp">修改</a></div>
-					<div id="title_d"><a href="delete">删除</a></div>
+                	<div id="title_d"><a href="jsp/new_team.jsp">新增子节点</a></div>
+					<div id="title_d"><a href="updateTeamView?code=${list.code}">修改</a></div>
+					<div id="title_d"><a href="deleteTeam?code=${list.code}">删除</a></div>
                 </td>
             </tr>
             
@@ -66,22 +64,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <td>${sub.responsible }</td>
                 <td><fmt:formatDate value="${sub.createTime }" pattern="yyyy-MM-dd"/></td>
                 <td>
-                	<div id="title_d"><a href="new_team.jsp">新增子节点</a></div>
-					<div id="title_d"><a href="alter_team.jsp">修改</a></div>
-					<div id="title_d"><a href="delete">删除</a></div>
+                	<div id="title_d"><a>新增子节点</a></div>
+					<div id="title_d"><a href="updateTeamSubView?id=${sub.id }">修改</a></div>
+					<div id="title_d"><a href="deleteTeamSub?id=${sub.id }">删除</a></div>
                 </td>                
-            </tr>
-            <tr class="thchild_row_01 row_02">            
-                <td>${sub.name }</td>
-                <td>${sub.place }</td>
-                <td>${sub.responsible }</td>
-                <td><fmt:formatDate value="${sub.createTime }" pattern="yyyy-MM-dd"/></td>
-                <td>
-                	<div id="title_d"><a href="new_team.jsp">新增子节点</a></div>
-					<div id="title_d"><a href="alter_team.jsp">修改</a></div>
-					<div id="title_d"><a href="delete">删除</a></div>
-                </td>                
-            </tr>
+            </tr>            
             </c:forEach>
                    
             </c:forEach>
@@ -116,35 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					ele3.src = "images/bg09.png";
 				}
             });
-            $("#row_02").click(function (){
-                $(this).toggleClass("selected").siblings('.'+this.id).fadeToggle();
-                var ele1 = document.getElementById('img1');
-            	if(ele1.src.match("bg09")){
-            		ele1.src = "images/bg10.png";
-            	}				
-				else
-					ele1.src = "images/bg09.png";				
-			});
-			$("#row_03").click(function (){
-                $(this).toggleClass("selected").siblings('.'+this.id).fadeToggle();
-                
-				var ele2 = document.getElementById('img2');
-            	if(ele2.src.match("bg09")){
-            		ele2.src = "images/bg10.png";
-            	}				
-				else
-					ele2.src = "images/bg09.png";				
-			});
-			$("#row_04").click(function (){
-                $(this).toggleClass("selected").siblings('.'+this.id).fadeToggle();
-                
-				var ele2 = document.getElementById('img3');
-            	if(ele2.src.match("bg09")){
-            		ele2.src = "images/bg10.png";
-            	}				
-				else
-					ele2.src = "images/bg09.png";				
-			});
+        
         });        
     </script> 
 </html>

@@ -6,47 +6,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+	<base href="<%=basePath%>">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="../css/team.css">
+		<link rel="stylesheet" type="text/css" href="css/team.css">
 		<style>
-			input[type="text"]{
-				text-align: center; 
-				background-color: #6CADE3;
-				border:0px solid #6CADE3;
-				}
+			
+				input {
+    margin-top: 0px;
+    margin-left: 0px;
+    border: 1px solid #AFAFAF;
+    line-height: 25px;
+    font-size: 10pt;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    border-color: #535353;}
 		</style>		
 	</head>
 	<body>
-	<div id="home_top">   	  		
-    	<div id="div_menu"><img src="../images/menu.png" /></div>
-    	<div id="span_menu">全部菜单</div>
-    	<div id="font_fu"><img src="../images/font.png"/></div>     	    
-   </div>
+	
    	<div id="div_pinfo">		
 	<div id="table_out">
-		<table align="center" cellspacing="20" cellpadding="20" width="500" height="50" bgcolor="#6CADE3">
+		<form action="updateTeam" method="post">
+		<table align="center" cellspacing="0" cellpadding="0" width="500" height="50" border=1>
             <tr>            	
                 <td>团队名称</td>
-                <td><input type="text"  value="福富软件CRM团队"/></td>
+                <td><input type="hidden" name="id" value="${ViewTeam.id }">
+                <input name="name" type="text"  value=${ViewTeam.name }/></td>
             </tr>
             <tr> 
        			<td>所在区域</td>
-       			<td><input type="text"  value="福建省"/></td>
+       			<td><input name="place" type="text"  value="${ViewTeam.place }"/></td>
             </tr>
             <tr> 
        			<td>团队负责人</td>
-       			<td><input type="text"  value="欧志芳"/></td>
+       			<td><input name="responsible" type="text"  value="${ViewTeam.responsible }"/></td>
             </tr>
             <tr>
        			<td>创建时间</td>
-       			<td><input type="text"  value="2016-03-26 09：00：00"/></td>
+       			<td>${ViewTeam.createTime }</td>
             </tr>
             <tr>
             	<td><input type="reset" value="取消"></td>
             	<td><input type="submit" value="确定"></td>
             </tr>
     </table>
+    </form>
 	</div>	
 	</div>	
 	</body>

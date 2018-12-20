@@ -1,30 +1,14 @@
 <%@ page language="java" import="java.util.*,com.hez.domain.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'c.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-
-	<link rel="stylesheet" type="text/css" href="css/c.css">
-
-
-
-<script src="javascript/jquery.js"></script>
-<script src="javascript/highcharts.js"></script>
   </head>
-    <% List<Overtime> OvertimeList =(List<Overtime>)request.getAttribute("durationt3MonthList");
+  
+<% List<Overtime> OvertimeList =(List<Overtime>)
+
+request.getAttribute("durationt3MonthList");
 	 int[] team1Overtimes= new int[3];	
 	 int[] team2Overtimes= new int[3];	
 	 String team1Name=null;
@@ -34,17 +18,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	 for(int i=0;i<OvertimeList.size();i++){
 		Overtime overtime=(Overtime)OvertimeList.get(i);
 		if(overtime.getTeam().getId()==1){
-			team1Overtimes[j++] = overtime.getDuration();
+			team1Overtimes[j++] = 
+
+overtime.getDuration();
 			team1Name=overtime.getTeam().getName();
 			mon[x++]=overtime.getMealcoupon();
 		}else if(overtime.getTeam().getId()==2){
-			team2Overtimes[k++] = overtime.getDuration();
+			team2Overtimes[k++] = 
+
+overtime.getDuration();
 			team2Name=overtime.getTeam().getName();
 		}
 	}
 %>
-
-  <script language="JavaScript">
+		
+<script language="JavaScript">
 
 $(document).ready(function() {  
    var chart = {
@@ -82,13 +70,13 @@ $(document).ready(function() {
       enabled: false
    };
    
-   var series= [{
-        name: '<%= team1Name %>',
+  var series= [{
+       		name: '<%= team1Name %>',
             data: [<%= team1Overtimes[0]%>, <%= team1Overtimes[1]%>, <%= team1Overtimes[2]%>]
         },{
             name: '<%= team2Name %>',
             data: [<%= team2Overtimes[0]%>, <%= team2Overtimes[1]%>, <%= team2Overtimes[2]%>]
-   }];     
+   }];    
       
    var json = {};   
    json.chart = chart; 
@@ -103,20 +91,9 @@ $(document).ready(function() {
    $('#container').highcharts(json);
   
 });
-  <body>
-        <div id="to">
-				<div class="line"></div>
-				<div class="title_information">统计信息</div>
-				<div class="find_all">
-					<div class="update_div"><img class="update_img" src="images/find.png"/></div>
-					<div class="update">查看</div>
-				</div>
-		</div>
-			  <div id="container"></div>			
+</script>
 
-
-		
-
-  </body>
+<script type="text/javascript"></script>
+<body>sssssssss</body>
   
 </html>

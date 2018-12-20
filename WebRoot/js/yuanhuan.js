@@ -1,7 +1,7 @@
 $(function(){
 		if(pie!=""){
 		pie=pie.split(" "); //array分割，自动转为数组
-		
+		alert(pie)
 		for(var i = 0; i < pie.length; i=i+1 ){
 			//document.write(pie[i]+"</br>");
 			pie[i]=pie[i].split("-"); 

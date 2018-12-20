@@ -26,99 +26,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="javascript/jquery.js"></script>
 <script src="javascript/highcharts.js"></script>
 
+
   </head>
   
  <script type="text/javascript" >
   		function f(){
-  		//alert("dianjile");
-  		document.getElementById("target_2").style.display="block";
-  			//$("#target_2").style.display.show();
+  			document.getElementById("target_2").style.display="block";	
   		}
   		function hidden_menu(){ 		
-  		  document.getElementById("target_2").style.display="none";  			
+  		  	document.getElementById("target_2").style.display="none";  	
+  		  	document.getElementById("button-right").style.display="none";		
   		}
+  		
   </script>
-  
-   <% List<Overtime> OvertimeList =(List<Overtime>)request.getAttribute("durationt3MonthList");
-	 int[] team1Overtimes= new int[3];	
-	 int[] team2Overtimes= new int[3];	
-	 String team1Name=null;
-	 String team2Name=null;
-	 String[] mon=new String[3];
-	 int j=0,k=0,x=0;
-  	 for(int i=0;i<OvertimeList.size();i++){
-		Overtime overtime=(Overtime)OvertimeList.get(i);
-		if(overtime.getTeam().getId()==1){
-			team1Overtimes[j++] = overtime.getDuration();
-			team1Name=overtime.getTeam().getName();
-			mon[x++]=overtime.getMealcoupon();
-		}else if(overtime.getTeam().getId()==2){
-			team2Overtimes[k++] = overtime.getDuration();
-			team2Name=overtime.getTeam().getName();
-		}
-	}
-%>
-
-  <script language="JavaScript">
-
-$(document).ready(function() {  
-   var chart = {
-      type: 'column'
-   };
-   var title = {
-      text: '我的近三个月工时加班统计'   
-   };
  
-   var xAxis = {
-      categories: ['<%= mon[0]%>','<%= mon[1]%>','<%= mon[2]%>'],
-      crosshair: true
-   };
-   var yAxis = {
-      min: 0,
-      title: {
-         text: '工时[h]'         
-      }      
-   };
-   var tooltip = {
-      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-         '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-      footerFormat: '</table>',
-      shared: true,
-      useHTML: true
-   };
-   var plotOptions = {
-      column: {
-         pointPadding: 0.2,
-         borderWidth: 0
-      }
-   };  
-   var credits = {
-      enabled: false
-   };
-   
-   var series= [{
-        name: '<%= team1Name %>',
-            data: [<%= team1Overtimes[0]%>, <%= team1Overtimes[1]%>, <%= team1Overtimes[2]%>]
-        },{
-            name: '<%= team2Name %>',
-            data: [<%= team2Overtimes[0]%>, <%= team2Overtimes[1]%>, <%= team2Overtimes[2]%>]
-   }];     
-      
-   var json = {};   
-   json.chart = chart; 
-   json.title = title;   
-   
-   json.tooltip = tooltip;
-   json.xAxis = xAxis;
-   json.yAxis = yAxis;  
-   json.series = series;
-   json.plotOptions = plotOptions;  
-   json.credits = credits;
-   $('#container').highcharts(json);
-});
-  </script>
-  <body>
+
+ 
+  <body >
 
 	
 		<div id="home_top">
@@ -134,17 +58,25 @@ $(document).ready(function() {
 							
 							<ul id="target_2">
 								<li>
-									<a href="js/personal_centre.jsp" onclick="hidden_menu()">个人中心</a>
+									<a href="selectInfo" onclick="hidden_menu()">个人中心</a>
 								</li>
 								<li>
 									<a href="js/line_record.jsp" onclick="hidden_menu()">在线登记</a>
 								</li>
 								<li>
-									<a href="js/jobTime_search.jsp" onclick="hidden_menu()">工时查询</a>
+									<a href="selectOvertime" onclick="hidden_menu()">工时查询</a>
+								</li>
+								
+								<li>
+									<a href="selectForChart_Scatter" onclick="hidden_menu()">统计报表</a>
 								</li>
 								<li>
-									<a href="#" onclick="hidden_menu()">统计报表</a>
+									<a href="employee_info" onclick="hidden_menu()">员工信息</a>
 								</li>
+								<li>
+									<a href="select_team_teamSub" onclick="hidden_menu()">团队信息</a>
+								</li>
+								
 							</ul>
 						</li>
 					</ul>
@@ -189,7 +121,7 @@ $(document).ready(function() {
 		<div id="div3"></div>
 
 
-	<div class="fill-icon">
+			<div class="fill-icon">
 				<div class="icon"><img  src="images/line_login.png" /><span><a id="span-line" href="js/line_record.jsp"  target="_parent">在线登记</a></span></div>
 				<div class="icon"><img src="images/gs_find.png"/><span><a id="span-gs" href="selectOvertime">工时查询</a></span></div>
 				<div class="icon"><img src="images/count.png"/><span><a id="span-count" href="selectForChart_Scatter">统计报表</a></span></div>
@@ -244,7 +176,7 @@ $(document).ready(function() {
 					<table >
 						<tr>
 							<td class="r1">我的岗位：</td>
-							<td class="name"></td>
+							<td class="name"><br><br></td>
 							<td class="r1">我的功劳：</td>
 							<td class="content">5次</td>
 						</tr>
@@ -255,6 +187,7 @@ $(document).ready(function() {
 							<td class="content">
 								20小时</td>
 						</tr>	
+						
 						<%
      						 String info=(String)request.getAttribute("resetPassword");
      						 if(info!=null){
@@ -264,16 +197,22 @@ $(document).ready(function() {
      							<td colspan="4"  height="30" id="updatePass"><font color="red">${requestScope.resetPassword }</font>
      							<a href="js/password_update.jsp" >立即前往</a>
      							</td>
-     						</tr>
-     					<%	 
+     						</tr>   					    					
+     					<%
      						 }
-     					%>			
+     					%>	
+     					
+     					<tr>
+     						<td colspan="4"  height="30" id="updatePass"><font color="red">${emailInfo }</font>
+     						<a href="https://mail.qq.com" target="_blank" >立即前往</a>
+     						</td>
+     					</tr>		
 					</table>
 				</div>
 			</div>			
 	  
-	  
-        <div style="position:absolute;top:169px;right:10px; width: 600px;" id="to">
+	  <div id="button-right" >
+		<div style="position:absolute;top:169px;right:10px; width: 600px;" id="to">
 				<div class="line"></div>
 				<div class="title_information">统计信息</div>
 				<div class="find_all">
@@ -281,21 +220,24 @@ $(document).ready(function() {
 					<div class="update">查看</div>
 				</div>
 		</div>
-			  <div  style="position:absolute;top:209px;right:10px;width=100%;height:370px;" id="container" ></div>			
-	  
-	
-    			
+		<div  style="position:absolute;top:209px;right:10px;width=100%;height:370px;" 
+		  			  id="container" >
+		 	<%@ include file="zhifang.jsp" %>
+		 </div>		 	
+    </div>		
 
 
   	<div class="home_bottom">copyright&copy;中国电信股份有限公司福建分公司.All Right Reserverd</div>
 
 	
   </body>
-  <%-- 
-  	<script type="text/javascript" src="javascript/jquery-1.11.0.js"></script>
+  
+  	
    <script type="text/javascript" language="JavaScript" src="javascript/option_card.js" charset="gbk"></script>
-
---%>			
-
+   	
+ 
 
 </html>
+
+
+<%--  <script type="text/javascript" src="javascript/jquery-1.11.0.js"></script> --%>

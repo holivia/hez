@@ -53,12 +53,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 		
 	
-  <body ">
-	<div id="home_top">   	  		
-    			<div id="div_menu"><img src="images/menu.png" /></div>
-    			<div id="span_menu">全部菜单</div>
-    			<div id="font_fu"><img src="images/font.png"/></div>     	    
-    </div>
+  <body >
+
     
     <div id="backg"/><!--查询时间白色底纹                    -->
     <div class="date"/> <!--查询日历蓝色底纹                     -->
@@ -91,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div>
 						<input type="hidden" value=${startdate } name="startdate"/>
 						<input type="hidden" value=${enddate } name="enddate"/>
-						<input type="submit" value="排序查看" style=" position:absolute;top:120px;right:100px;"></input>
+						<input type="submit" value="排序查看" style=" position:absolute;top:70px;right:100px;"></input>
 						</div>
 					</form>
 				</div>

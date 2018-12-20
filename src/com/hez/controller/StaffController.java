@@ -41,14 +41,18 @@ public class StaffController {
 		 if(staffInfo!=null){
 			 session.setAttribute("staff",staffInfo);						//staff 存放 session 备用
 			 
-			 if(staff.getJobnumber().equals(staffInfo.getPassword())) 		
+			 if(staff.getJobnumber().equals(staffInfo.getPassword())){
 				 model.addAttribute("resetPassword","请尽快修改您初始登录密码");		//初始登录用户：用户名和密码相等；第一次登录需提示进行密码重置
-			
+			 }else{
+				 model.addAttribute("resetPassword","");					//给默认值，resetPssword：""；否则redirect 的控制器下的注解@requestParam得不到参数会报错
+			 }
+				 
+			//有网环境下完成实验
 			 //2. staff登录成功后，系统调用sendEmail，自动计算今天是否为工时填写 截止日期。         y=30号为截至日期。到期前3天，通知填写工时记录y=(y-3)			
 			 Calendar rightNow = Calendar.getInstance();
 			 rightNow.setTime(new Date()); 
 			 int nowday=rightNow.get(rightNow.DAY_OF_MONTH);
-			 int endday=1;		//截止日期前3天
+			 int endday=19;		//截止日期前3天
 			if(nowday==endday){
 				//发送者：
 				MailSender mails=MailSendCollection.getMailSendColletion();
@@ -60,6 +64,8 @@ public class StaffController {
 					e.printStackTrace();
 				}
 				model.addAttribute("emailInfo","请前往您的邮箱"+staffInfo.getEmail()+"，您有一封新的邮件请查收！");
+			}else{
+				model.addAttribute("emailInfo","");
 			}						 	 
 			 return "redirect:mainForm";			 
 		 }else{

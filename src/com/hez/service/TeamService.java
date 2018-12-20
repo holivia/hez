@@ -11,9 +11,10 @@ import com.hez.provider.TeamDynaSqlProvider;
 
 public interface TeamService {
 	public Team selectTeamView(int id);
+	public TeamSub selectTeamSubView(int id);
 	public int selectTeamOfStaffTeam(String teamname);
-	
-	public List<TeamSub> selectTeamSubView(int id);
+	public int selectTeamCode(String code);	
+	public List<TeamSub> selectTeamSubsView(int id);
 	public List<Team> selectTeams(Team team);
 	public int updateTeam(Team team);
 	public int deleteTeam(int id);
