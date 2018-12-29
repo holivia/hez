@@ -6,7 +6,7 @@ body{
 	height:450px;
 	background: white;
 	
-	border: dashed 1px pink;
+	/*border: dashed 1px pink;*/
 	margin-top:20px;
 }
 #div_top{
@@ -23,7 +23,7 @@ body{
 	background: white;
 	width:75px;
 	height:32px;
-	border: solid 1px #459DE6;
+	/*border: solid 1px #459DE6;*/
 	color: #459DE6;
 	
 	position:absolute;

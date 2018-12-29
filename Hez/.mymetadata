@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Hez"
+  id="myeclipse.1536301060607"
+  context-root="/Hez"
+  j2ee-spec="5.0"
+  archive="Hez.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

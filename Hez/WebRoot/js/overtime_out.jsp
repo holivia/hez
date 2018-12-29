@@ -118,7 +118,7 @@
 							<tr >
 								<td align="center">
 									<!-- 团队 -->
-									${overtime.staffteam.team.name}
+									${overtime.team.name}
 								</td >
 								<td align="center">
 								<fmt:formatDate value="${overtime.date}" pattern="yyyy年MM月dd日"/>

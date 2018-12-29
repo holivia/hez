@@ -21,6 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="javascript/jquery.js"></script>
 <script src="javascript/highcharts.js"></script>
   </head>
+ 
    <% 
    
    List<Overtime> durationList =(List<Overtime>)request.getAttribute("durationList");
@@ -62,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 	}
 	
-	
+	 
 	List<Overtime> assignmentList =(List<Overtime>)request.getAttribute("assignmentList");
 	 int[] assignmentteam1Overtimes= new int[3];	
 	 int[] assignmentteam2Overtimes= new int[3];	
@@ -80,8 +81,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			assignmentteam2Overtimes[assignmentk++] = overtime.getAssignment();
 			assignmentteam2Name=overtime.getTeam().getName();
 		}
-	}
-%>
+	}  
+%>  
   <body>
     <div id="divtop"></div>
     <div id="div_pinfo">
@@ -128,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
 						<tr>
 							<td class="r1">入司时间：</td>
-							<td class="p_content"><fmt:formatDate value="${sessionScope.staff.entrytime }"
+							<td class="p_content">-<fmt:formatDate value="${sessionScope.staff.entrytime }"
 							pattern="yyyy-MM-dd" /></td>
 						</tr>
 						<tr>
@@ -161,7 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<div id="div_title">
-			<div id="title_d"><a href="js/line_record.jsp">在线登记</a></div>
+			<div id="title_d"><a href="selectOvertimeTwo?index=0">在线登记</a></div>
 			<div id="title_d"><a href="selectOvertime">工时查询</a></div>
 			<div id="title_d"><a href="selectForChart_Scatter">统计报表</a></div>
 			<div id="title_d"><a href="employee_info">员工信息</a></div>
@@ -177,6 +178,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="div_right">
 			
 		</div>
+		
 		<script language="JavaScript">
 $(document).ready(function() {  
    var chart = {
@@ -238,6 +240,7 @@ $(document).ready(function() {
   
 });
 </script>
+
 		<script language="JavaScript">
 $(document).ready(function() {  
    var chart = {
@@ -358,6 +361,6 @@ $(document).ready(function() {
    $('#div_right').highcharts(json);
   
 });
-</script>
+</script>   
   </body>
 </html>

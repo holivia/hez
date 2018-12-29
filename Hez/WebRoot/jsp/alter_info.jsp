@@ -62,8 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div style="width:100%;float:left;">
 		<c:forEach items="${staffTeamList}" var="list">
 		<div id="p_information" style="float:left;">
-			<table class="title_d">
-			
+			<table class="title_d">			
 				<tr>
 					<td class="r1">团队编号：</td>
 					<td class="p_content">${list.team.code}</td>					
